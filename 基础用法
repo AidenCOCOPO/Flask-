@@ -1,0 +1,26 @@
+路由装饰器
+
+request请求
+获取请求方法:
+method = request.method   get是前端查看服务器内容， post是前端修改服务器内容
+获取查询字符串参数:
+param_value = request.args.get('param_name')
+获取表单数据:
+form_value = request.form.get('form_field_name')
+获取单个文件上传:
+file = request.files['file_name']
+获取请求头信息:
+user_agent = request.headers.get('User-Agent')
+
+获取 JSON 数据:
+json_data = request.get_json() or request.josn
+request.json是属性，只能在post，put请求方法中使用 一次
+request.get_json是一个方法，可以在任何请求方法中使用无数次
+
+获取 cookies:
+cookie_value = request.cookies.get('cookie_name')
+获取远程 IP 地址:
+remote_addr = request.remote_addr
+请注意，在使用 request 对象之前，需要先导入它:
+
+from flask import request
