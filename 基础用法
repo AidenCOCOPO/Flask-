@@ -24,3 +24,16 @@ remote_addr = request.remote_addr
 请注意，在使用 request 对象之前，需要先导入它:
 
 from flask import request
+
+make_response 是一个函数，用于创建响应对象，它提供了更简单的方式来设置响应内容和状态码，以及处理头部。通常用于快速创建响应对象，尤其是在视图函数中。
+@app.route('/example')
+def example_response():
+    response = make_response("This is an example response.", 200)
+    response.headers['Custom-Header'] = 'Custom Value'
+    return response
+Response 是 Flask 的响应对象类，它允许更灵活地创建和自定义响应对象，以满足特定需求。可以通过创建 Response 实例并设置各种属性来自定义响应对象。
+@app.route('/custom_response')
+def custom_response():
+    response = Response("This is a custom response.", status=201, content_type="text/plain")
+    response.headers['Custom-Header'] = 'Custom Value'
+    return response
